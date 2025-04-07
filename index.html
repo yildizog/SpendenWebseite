@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Spende für Oguzhan</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         /* Base styles */
         * {
@@ -21,7 +22,7 @@
             overflow-x: hidden;
         }
 
-        h1, h2 {
+        h1, h2, h3 {
             color: #fff;
         }
 
@@ -147,6 +148,56 @@
 
         .cta-button:hover::before {
             left: 100%;
+        }
+
+        /* Navigation Bar */
+        .nav-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .nav-bar.scrolled {
+            padding: 12px 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: #2575fc;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            padding: 8px 15px;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-weight: bold;
+        }
+
+        .nav-link:hover {
+            background: rgba(255, 255, 255, 0.1);
         }
 
         /* Sections */
@@ -316,6 +367,287 @@
             color: #6a11cb;
         }
 
+        /* Social Media */
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .social-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: #333;
+            color: white;
+            text-decoration: none;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .social-button:hover {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .social-button.instagram {
+            background: linear-gradient(45deg, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d);
+        }
+
+        .social-button.tiktok {
+            background: linear-gradient(45deg, #000000, #EE1D52, #69C9D0);
+        }
+
+        .social-button.twitter {
+            background: #1da1f2;
+        }
+
+        /* Date/Meet Me Options */
+        .date-options {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin: 40px 0;
+        }
+
+        .date-card {
+            flex: 1 1 250px;
+            max-width: 300px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 30px 20px;
+            position: relative;
+            transition: all 0.3s ease;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            min-height: 400px;
+        }
+
+        .date-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .date-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+        }
+
+        .date-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: #2575fc;
+        }
+
+        .date-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .date-description {
+            margin-bottom: 25px;
+            font-size: 1.1rem;
+        }
+
+        .date-price {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #ff6b6b;
+            margin-bottom: 20px;
+        }
+
+        .date-button {
+            background: #2575fc;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            display: inline-block;
+            margin-top: auto;
+        }
+
+        .date-button:hover {
+            background: #1a5dba;
+            transform: scale(1.05);
+        }
+
+        .date-badge {
+            position: absolute;
+            top: 20px;
+            right: -30px;
+            background: #ff6b6b;
+            color: white;
+            transform: rotate(45deg);
+            padding: 5px 30px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            z-index: 1;
+        }
+
+        /* Featured Content */
+        .featured-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin: 50px 0;
+        }
+
+        .featured-video {
+            flex: 1 1 300px;
+            max-width: 500px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            position: relative;
+        }
+
+        .video-placeholder {
+            width: 100%;
+            height: 0;
+            padding-bottom: 56.25%;
+            background: linear-gradient(45deg, #2b2b2b, #1a1a1a);
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+        .play-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80px;
+            height: 80px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .play-button:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%) scale(1.1);
+        }
+
+        .play-icon {
+            font-size: 2rem;
+            color: white;
+        }
+
+        /* FAQ Section */
+        .faq-container {
+            margin: 40px 0;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .faq-item {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            margin-bottom: 15px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 20px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-question::after {
+            content: "+";
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .faq-item.active .faq-question::after {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            padding: 0 20px;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 1000px;
+            padding: 0 20px 20px;
+        }
+
+        /* Newsletter */
+        .newsletter {
+            background: linear-gradient(45deg, #6a11cb, #2575fc);
+            padding: 50px 20px;
+            border-radius: 10px;
+            margin: 50px 0;
+        }
+
+        .newsletter-form {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            margin-top: 20px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .newsletter-input {
+            flex: 1 1 300px;
+            padding: 15px 20px;
+            border-radius: 50px;
+            border: none;
+            font-size: 1rem;
+            outline: none;
+        }
+
+        .newsletter-button {
+            background: #ff6b6b;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .newsletter-button:hover {
+            background: #ff4757;
+            transform: scale(1.05);
+        }
+
         /* Footer */
         footer {
             background-color: #111;
@@ -350,46 +682,161 @@
             animation: floatUp 15s linear infinite;
         }
 
-        /* Social share buttons */
-        .social-share {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-top: 30px;
-        }
-
-        .social-button {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
+        /* Back to top button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
             width: 50px;
             height: 50px;
-            border-radius: 50%;
-            background: #333;
+            background: #2575fc;
             color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             text-decoration: none;
-            font-size: 1.3rem;
+            z-index: 999;
+            opacity: 0;
+            transform: translateY(100px);
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .back-to-top.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .back-to-top:hover {
+            background: #1a5dba;
+            transform: translateY(-5px);
+        }
+
+        /* Sound Effects Button */
+        .sound-toggle {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 999;
+            color: white;
+            font-size: 1.2rem;
             transition: all 0.3s ease;
         }
 
-        .social-button:hover {
-            transform: scale(1.1);
+        .sound-toggle:hover {
+            background: rgba(255, 255, 255, 0.2);
         }
 
-        .fb {
-            background: #3b5998;
+        /* Gift Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(5px);
         }
 
-        .tw {
-            background: #1da1f2;
+        .modal-content {
+            background: #222;
+            padding: 30px;
+            border-radius: 15px;
+            position: relative;
+            max-width: 500px;
+            width: 90%;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            animation: modalShow 0.5s ease;
         }
 
-        .ig {
-            background: linear-gradient(45deg, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d);
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #bbb;
+            transition: all 0.3s ease;
         }
 
-        .wa {
-            background: #25d366;
+        .close-modal:hover {
+            color: white;
+            transform: rotate(90deg);
+        }
+
+        .gift-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        .gift-option {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 15px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 120px;
+        }
+
+        .gift-option:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-5px);
+        }
+
+        .gift-amount {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #2575fc;
+        }
+
+        @keyframes modalShow {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* Toast notifications */
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #2575fc;
+            color: white;
+            padding: 15px 25px;
+            border-radius: 50px;
+            font-weight: bold;
+            z-index: 1000;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+
+        .toast.show {
+            opacity: 1;
+            transform: translateX(-50%) translateY(-20px);
         }
 
         /* Animations */
@@ -484,213 +931,121 @@
                 min-width: 60px;
             }
 
-            .testimonials {
-                flex-direction: column;
-                align-items: center;
+            .nav-links {
+                display: none;
             }
 
-            .testimonial {
-                max-width: 100%;
+            .nav-mobile {
+                display: block;
             }
+        }
+
+        @media (min-width: 769px) {
+            .nav-mobile {
+                display: none;
+            }
+        }
+
+        /* Mobile Navigation */
+        .nav-mobile {
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 80%;
+            max-width: 400px;
+            height: 100vh;
+            background: #222;
+            z-index: 1001;
+            display: flex;
+            flex-direction: column;
+            padding: 80px 40px;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu.show {
+            right: 0;
+        }
+
+        .mobile-nav-link {
+            color: white;
+            text-decoration: none;
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-nav-link:hover {
+            color: #2575fc;
+        }
+
+        .close-mobile-menu {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .close-mobile-menu:hover {
+            color: #2575fc;
+            transform: rotate(90deg);
+        }
+
+        .mobile-menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+            display: none;
+        }
+
+        .mobile-menu-overlay.show {
+            display: block;
         }
     </style>
 </head>
 <body>
+    <!-- Navigation -->
+    <nav class="nav-bar" id="navbar">
+        <a href="#" class="logo">Oguzhan<span>YDZ</span></a>
+        <div class="nav-links">
+            <a href="#about" class="nav-link">Warum Spenden?</a>
+            <a href="#meet-me" class="nav-link">Triff Mich</a>
+            <a href="#social" class="nav-link">Social Media</a>
+            <a href="#faq" class="nav-link">FAQ</a>
+        </div>
+        <div class="nav-mobile" id="mobile-menu-toggle">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobile-menu">
+        <div class="close-mobile-menu" id="close-mobile-menu">
+            <i class="fas fa-times"></i>
+        </div>
+        <a href="#about" class="mobile-nav-link">Warum Spenden?</a>
+        <a href="#meet-me" class="mobile-nav-link">Triff Mich</a>
+        <a href="#social" class="mobile-nav-link">Social Media</a>
+        <a href="#faq" class="mobile-nav-link">FAQ</a>
+    </div>
+    <div class="mobile-menu-overlay" id="mobile-menu-overlay"></div>
+
     <!-- Hero Section -->
     <div class="hero">
         <div class="hero-content container">
             <h1>Unterstütze Oguzhan</h1>
             <p>Deine Spende macht den Unterschied! Mit jedem Euro hilfst du, eine bessere Zukunft zu gestalten. Danke für deine Unterstützung!</p>
             <!-- Animated Donation Button -->
-            <a href="https://donate.stripe.com/test_dR65l2eNd6BBcow288" class="cta-button">
-                Jetzt spenden 💰
-            </a>
-        </div>
-        <!-- Animated coins for visual effect -->
-        <div id="coins-container"></div>
-    </div>
-
-    <!-- About Section -->
-    <section>
-        <div class="container">
-            <h2 class="section-title">Warum spenden? 🤔</h2>
-            <div class="section-content">
-                <p>Ohne deine Hilfe muss ich kreative Alternativen finden, um über die Runden zu kommen. Und ehrlich gesagt, niemand will mich beim Versuch sehen, TikTok-Tänze zu lernen oder meine Sockensammlung zu verkaufen!</p>
-                
-                <div class="donation-goal">
-                    <h3>Unser Spendenziel: 1.000 €</h3>
-                    <div class="progress-container">
-                        <div class="progress-bar"></div>
-                    </div>
-                    <p>Schon 350€ gesammelt!</p>
-                </div>
-                
-                <div class="counter-container">
-                    <div class="counter" id="days">42</div>
-                    <div class="counter" id="hours">17</div>
-                    <div class="counter" id="minutes">23</div>
-                </div>
-                <p>Tage, Stunden, Minuten bis ich meine Gitarre verpfänden muss 🎸</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Why It Matters Section -->
-    <section>
-        <div class="container">
-            <h2 class="section-title">Ich hab es wirklich nötig 😅</h2>
-            <div class="section-content">
-                <p>Spende aus Korrektheit und weil du weißt, dass ich dir auch helfen würde! Plus: Jeder Spender bekommt einen virtuellen High-Five und das unbezahlbare Gefühl, einen Freund vor dem Instant-Nudel-Marathon gerettet zu haben.</p>
-                
-                <div class="testimonials">
-                    <div class="testimonial">
-                        <p class="testimonial-text">Ich habe gespendet und plötzlich hat mein WLAN besser funktioniert. Zufall? Ich glaube nicht!</p>
-                        <p class="testimonial-author">- Lisa, begeisterte Spenderin</p>
-                    </div>
-                    <div class="testimonial">
-                        <p class="testimonial-text">Nach meiner Spende habe ich einen Parkplatz direkt vor dem Supermarkt gefunden. Das Karma wirkt sofort!</p>
-                        <p class="testimonial-author">- Markus, Karma-Glückspilz</p>
-                    </div>
-                </div>
-                
-                <!-- Social Share -->
-                <div class="social-share">
-                    <a href="#" class="social-button fb">f</a>
-                    <a href="#" class="social-button tw">t</a>
-                    <a href="#" class="social-button ig">i</a>
-                    <a href="#" class="social-button wa">w</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <p>BITTE ICH BRAUCH DAS WIRKLICH! 🙏</p>
-        <p>Jede Spende hilft - selbst wenn es nur genug für einen Kaffee ist!</p>
-        <p>© 2025 Die "Rettet Oguzhan" Initiative</p>
-        <div class="hearts" id="hearts-container"></div>
-        <div class="konami-code">↑↑↓↓←→←→BA</div>
-    </footer>
-
-    <!-- Emoji Rain Container -->
-    <div class="emoji-rain" id="emoji-rain"></div>
-
-    <!-- JavaScript for dynamic elements -->
-    <script>
-        // Create falling coins in hero section
-        document.addEventListener('DOMContentLoaded', function() {
-            const coinsContainer = document.getElementById('coins-container');
-            const heartsContainer = document.getElementById('hearts-container');
-            const emojiRain = document.getElementById('emoji-rain');
-            
-            // Create coins
-            for (let i = 0; i < 15; i++) {
-                setTimeout(() => {
-                    const coin = document.createElement('div');
-                    coin.classList.add('coin');
-                    coin.style.left = Math.random() * 100 + 'vw';
-                    coin.style.animationDuration = Math.random() * 10 + 5 + 's';
-                    coinsContainer.appendChild(coin);
-                    
-                    // Remove coin after animation
-                    setTimeout(() => {
-                        coin.remove();
-                    }, 15000);
-                }, i * 1000);
-            }
-            
-            // Create floating hearts in footer
-            for (let i = 0; i < 20; i++) {
-                const heart = document.createElement('div');
-                heart.classList.add('heart');
-                heart.innerHTML = '❤️';
-                heart.style.left = Math.random() * 100 + 'vw';
-                heart.style.animationDuration = Math.random() * 10 + 5 + 's';
-                heart.style.animationDelay = Math.random() * 5 + 's';
-                heart.style.opacity = Math.random() * 0.5 + 0.1;
-                heartsContainer.appendChild(heart);
-            }
-            
-            // Konami code easter egg
-            let konamiCode = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
-            let konamiIndex = 0;
-            
-            document.addEventListener('keydown', function(e) {
-                if (e.key === konamiCode[konamiIndex]) {
-                    konamiIndex++;
-                    if (konamiIndex === konamiCode.length) {
-                        activateEmojiRain();
-                        konamiIndex = 0;
-                    }
-                } else {
-                    konamiIndex = 0;
-                }
-            });
-            
-            // Emoji rain function
-            function activateEmojiRain() {
-                emojiRain.style.display = 'block';
-                const emojis = ['💰', '💸', '🤑', '💵', '💶', '💷', '💴', '🪙', '💎', '🎁'];
-                
-                for (let i = 0; i < 100; i++) {
-                    setTimeout(() => {
-                        const emoji = document.createElement('div');
-                        emoji.classList.add('emoji');
-                        emoji.innerHTML = emojis[Math.floor(Math.random() * emojis.length)];
-                        emoji.style.left = Math.random() * 100 + 'vw';
-                        emoji.style.animationDuration = Math.random() * 6 + 3 + 's';
-                        emojiRain.appendChild(emoji);
-                        
-                        // Remove emoji after animation
-                        setTimeout(() => {
-                            emoji.remove();
-                        }, 9000);
-                    }, i * 100);
-                }
-                
-                // Hide emoji rain container after animation
-                setTimeout(() => {
-                    emojiRain.style.display = 'none';
-                }, 15000);
-            }
-            
-            // Make donate button extra exciting
-            const donateButton = document.querySelector('.cta-button');
-            donateButton.addEventListener('mouseover', function() {
-                this.textContent = "JA, ICH BIN AWESOME! 🤩";
-            });
-            donateButton.addEventListener('mouseout', function() {
-                this.textContent = "Jetzt spenden 💰";
-            });
-            
-            // Countdown timer functionality
-            let days = 42;
-            let hours = 17;
-            let minutes = 23;
-            
-            function updateCountdown() {
-                minutes--;
-                if (minutes < 0) {
-                    minutes = 59;
-                    hours--;
-                    if (hours < 0) {
-                        hours = 23;
-                        days--;
-                        if (days < 0) {
-                            days = hours = minutes = 0;
-                        }
-                    }
-                }
-                
-                document.getElementById('days').textContent = days;
-                document.getElementById('hours').textContent = hours;
-                document.getElementById('minutes').textContent = minutes;
-            }
-            
-            // Update countdown every minute
-            setInterval(updateCountdown, 60000);
-        });
-    </script>
-</body>
-</html>
+            <a href="https://donate.stripe.com/test_dR65l2
