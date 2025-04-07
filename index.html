@@ -26,110 +26,6 @@
             color: #fff;
         }
 
-        /* Navigation Bar */
-        .navbar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background: rgba(18, 18, 18, 0.95);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            padding: 15px 0;
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
-            transition: all 0.3s ease;
-        }
-
-        .navbar.scrolled {
-            padding: 10px 0;
-            background: rgba(18, 18, 18, 0.98);
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 20px;
-        }
-
-        .logo {
-            font-size: 1.8rem;
-            font-weight: bold;
-            color: #fff;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            background: linear-gradient(135deg, #6a11cb, #2575fc);
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-            transition: all 0.3s ease;
-        }
-
-        .logo:hover {
-            transform: scale(1.05);
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-        }
-
-        .nav-links li {
-            margin-left: 30px;
-        }
-
-        .nav-links a {
-            color: #fff;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1.1rem;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .nav-links a:hover {
-            color: #2575fc;
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: linear-gradient(to right, #6a11cb, #2575fc);
-            transition: all 0.3s ease;
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        .donate-nav-btn {
-            background: linear-gradient(135deg, #ff6b6b, #ff4757);
-            color: white;
-            padding: 8px 20px;
-            border-radius: 50px;
-            font-weight: bold;
-            transition: all 0.3s ease;
-        }
-
-        .donate-nav-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
-            color: white;
-        }
-
-        .mobile-menu-btn {
-            display: none;
-            cursor: pointer;
-            font-size: 1.5rem;
-        }
-
         /* Container */
         .container {
             max-width: 1200px;
@@ -138,7 +34,7 @@
             text-align: center;
         }
 
-        /* Hero Section - Adjusted for navbar */
+        /* Hero Section */
         .hero {
             background: linear-gradient(135deg, #6a11cb, #2575fc, #00d4ff);
             background-size: 300% 300%;
@@ -149,7 +45,6 @@
             justify-content: center;
             position: relative;
             overflow: hidden;
-            padding-top: 80px; /* Added padding for navbar */
         }
 
         .hero::before {
@@ -954,59 +849,10 @@
                 font-size: 2rem;
                 min-width: 60px;
             }
-            
-            .mobile-menu-btn {
-                display: block;
-            }
-            
-            .nav-links {
-                position: fixed;
-                top: 70px;
-                left: 0;
-                width: 100%;
-                background: rgba(18, 18, 18, 0.95);
-                flex-direction: column;
-                padding: 20px 0;
-                clip-path: circle(0px at 90% -10%);
-                -webkit-clip-path: circle(0px at 90% -10%);
-                transition: all 0.5s ease-out;
-                pointer-events: none;
-            }
-            
-            .nav-links.active {
-                clip-path: circle(1000px at 90% -10%);
-                -webkit-clip-path: circle(1000px at 90% -10%);
-                pointer-events: all;
-            }
-            
-            .nav-links li {
-                margin: 15px 0;
-            }
-            
-            .nav-links a::after {
-                display: none;
-            }
         }
     </style>
 </head>
 <body>
-    <!-- Navigation Bar -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <a href="#" class="logo">Oguzhan YDZ</a>
-            <div class="mobile-menu-btn">
-                <i class="fas fa-bars"></i>
-            </div>
-            <ul class="nav-links">
-                <li><a href="#about">Über Mich</a></li>
-                <li><a href="#meet">Triff Mich</a></li>
-                <li><a href="#social">Social Media</a></li>
-                <li><a href="#faq">FAQ</a></li>
-                <li><a href="https://donate.stripe.com/test_dR65l2" class="donate-nav-btn">Spenden</a></li>
-            </ul>
-        </div>
-    </nav>
-
     <!-- Hero Section -->
     <div class="hero">
         <div class="hero-content container">
@@ -1018,7 +864,7 @@
     </div>
 
     <!-- About Section -->
-    <section id="about">
+    <section>
         <div class="container">
             <h2 class="section-title">Warum Spenden?</h2>
             <div class="section-content">
@@ -1028,4 +874,99 @@
                     <div class="progress-container">
                         <div class="progress-bar"></div>
                     </div>
-                    <p>Bereits €3,500 von €10,000 erreicht</p
+                    <p>Bereits €3,500 von €10,000 erreicht</p>
+                </div>
+            </div>
+            <div class="counter-container">
+                <div>
+                    <div class="counter">147</div>
+                    <p>Spender</p>
+                </div>
+                <div>
+                    <div class="counter">35</div>
+                    <p>Tage</p>
+                </div>
+                <div>
+                    <div class="counter">84</div>
+                    <p>Projekte</p>
+                </div>
+            </div>
+            <div class="testimonials">
+                <div class="testimonial">
+                    <p class="testimonial-text">Oguzhan's Arbeit hat mein Leben verändert. Seine Hingabe ist wirklich inspirierend!</p>
+                    <p class="testimonial-author">- Laura M.</p>
+                </div>
+                <div class="testimonial">
+                    <p class="testimonial-text">Endlich jemand, der nicht nur redet, sondern auch handelt. Immer wieder gerne!</p>
+                    <p class="testimonial-author">- Markus K.</p>
+                </div>
+                <div class="testimonial">
+                    <p class="testimonial-text">Die Ergebnisse sprechen für sich. Meine Spende war definitiv gut investiert.</p>
+                    <p class="testimonial-author">- Sophie B.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Meet Me Section -->
+    <section>
+        <div class="container">
+            <h2 class="section-title">Triff Mich</h2>
+            <p>Als Dankeschön für deine Unterstützung biete ich dir die Möglichkeit, mich persönlich zu treffen.</p>
+            <div class="date-options">
+                <div class="date-card">
+                    <div class="date-badge">Beliebt</div>
+                    <i class="fas fa-coffee date-icon"></i>
+                    <h3 class="date-title">Kaffee & Gespräch</h3>
+                    <p class="date-description">Lass uns bei einem Kaffee über deine Ideen und meine Projekte sprechen. Eine Stunde nur für dich!</p>
+                    <p class="date-price">€50</p>
+                    <a href="https://donate.stripe.com/test_dR65l2" class="date-button">Auswählen</a>
+                </div>
+                <div class="date-card">
+                    <i class="fas fa-utensils date-icon"></i>
+                    <h3 class="date-title">Gemeinsames Abendessen</h3>
+                    <p class="date-description">Lass uns bei einem köstlichen Abendessen über deine Ideen und Projekte sprechen.</p>
+                    <p class="date-price">€100</p>
+                    <a href="https://donate.stripe.com/test_dR65l2" class="date-button">Auswählen</a>
+                </div>
+                <div class="date-card">
+                    <i class="fas fa-users date-icon"></i>
+                    <h3 class="date-title">Workshop & Beratung</h3>
+                    <p class="date-description">Ein exklusiver Workshop für dich und dein Team mit persönlicher Beratung.</p>
+                    <p class="date-price">€500</p>
+                    <a href="https://donate.stripe.com/test_dR65l2" class="date-button">Auswählen</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Media Section -->
+    <section>
+        <div class="container">
+            <h2 class="section-title">Social Media</h2>
+            <p>Folge mir auf Social Media für Updates und exklusive Einblicke:</p>
+            <div class="social-links">
+                <a href="#" class="social-button instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="social-button tiktok"><i class="fab fa-tiktok"></i></a>
+                <a href="#" class="social-button twitter"><i class="fab fa-twitter"></i></a>
+            </div>
+            <div class="featured-content">
+                <div class="featured-video">
+                    <div class="video-placeholder">
+                        <div class="play-button">
+                            <i class="fas fa-play play-icon"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section>
+        <div class="container">
+            <h2 class="section-title">Häufig gestellte Fragen</h2>
+            <div class="faq-container">
+                <div class="faq-item active">
+                    <div class="faq-question">Wohin geht meine Spende?</div>
+                    <div class="faq-answer
