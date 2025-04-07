@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Spenden für Max Mustermann</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f7f7f7;
+      color: #333;
+      margin: 0;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      background: white;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+      color: #111;
+    }
+
+    p {
+      font-size: 1.1em;
+    }
+
+    .button {
+      display: block;
+      margin: 20px auto;
+      padding: 15px 25px;
+      font-size: 1.1em;
+      background-color: #635bff;
+      color: white;
+      text-decoration: none;
+      border-radius: 12px;
+      transition: background 0.3s ease;
+    }
+
+    .button:hover {
+      background-color: #4a42cc;
+    }
+
+    .paypal {
+      background-color: #ffc439;
+      color: #111;
+    }
+
+    .paypal:hover {
+      background-color: #e6b800;
+    }
+
+    @media (max-width: 500px) {
+      .button {
+        width: 100%;
+        font-size: 1em;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Unterstütze Oguzhan</h1>
+    <p>Jede Spende hilft! Du kannst ganz einfach mit Klarna (z. B. „in 30 Tagen zahlen“) oder PayPal spenden.</p>
+
+    <!-- Stripe-Zahlungslink -->
+    <a href="https://donate.stripe.com/test_dR65l2eNd6BBcow288" class="button">💜 Jetzt spenden mit Klarna oder Karte</a>
+
+    <!-- Optionaler PayPal-Link -->
+    <a href="https://www.paypal.me/yildizog202" class="button paypal">💛 Spenden mit PayPal</a>
+
+    <p style="font-size: 0.9em; color: #888;">Danke für deine Unterstützung 🙏</p>
+  </div>
+</body>
+</html>
