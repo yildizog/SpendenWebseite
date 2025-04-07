@@ -1,81 +1,165 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Spenden für Max Mustermann</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f7f7f7;
-      color: #333;
-      margin: 0;
-      padding: 20px;
-      text-align: center;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spende für Max Mustermann</title>
+    <style>
+        /* Grundstyles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
 
-    .container {
-      max-width: 600px;
-      margin: 0 auto;
-      background: white;
-      padding: 30px;
-      border-radius: 20px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    }
+        body {
+            background: #121212;
+            color: #fff;
+            line-height: 1.6;
+            font-size: 18px;
+            overflow-x: hidden;
+            height: 100vh;
+        }
 
-    h1 {
-      color: #111;
-    }
+        h1, h2 {
+            color: #fff;
+        }
 
-    p {
-      font-size: 1.1em;
-    }
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 50px;
+            text-align: center;
+        }
 
-    .button {
-      display: block;
-      margin: 20px auto;
-      padding: 15px 25px;
-      font-size: 1.1em;
-      background-color: #635bff;
-      color: white;
-      text-decoration: none;
-      border-radius: 12px;
-      transition: background 0.3s ease;
-    }
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(45deg, #6a11cb, #2575fc);
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: slideIn 2s ease-in-out;
+            color: #fff;
+            text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3);
+        }
 
-    .button:hover {
-      background-color: #4a42cc;
-    }
+        .hero h1 {
+            font-size: 4rem;
+        }
 
-    .paypal {
-      background-color: #ffc439;
-      color: #111;
-    }
+        .hero p {
+            font-size: 1.2rem;
+            margin-top: 10px;
+        }
 
-    .paypal:hover {
-      background-color: #e6b800;
-    }
+        /* Call-to-action Button */
+        .cta-button {
+            background: #ff6b6b;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background 0.3s ease, transform 0.3s ease;
+            margin-top: 20px;
+        }
 
-    @media (max-width: 500px) {
-      .button {
-        width: 100%;
-        font-size: 1em;
-      }
-    }
-  </style>
+        .cta-button:hover {
+            background: #ff4757;
+            transform: scale(1.1);
+        }
+
+        /* Abschnitt Übergänge */
+        section {
+            padding: 80px 20px;
+            transition: all 0.5s ease-in-out;
+        }
+
+        section:nth-of-type(odd) {
+            background-color: #222;
+        }
+
+        section:nth-of-type(even) {
+            background-color: #333;
+        }
+
+        /* Stripe Button Styling */
+        .stripe-button {
+            background-color: #2575fc;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            margin-top: 20px;
+        }
+
+        .stripe-button:hover {
+            background-color: #1e5bbf;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #222;
+            padding: 20px 0;
+            text-align: center;
+            color: #bbb;
+        }
+
+        footer p {
+            font-size: 0.9rem;
+        }
+
+        /* Animations */
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Unterstütze Oguzhan</h1>
-    <p>Jede Spende hilft! Du kannst ganz einfach mit Klarna (z. B. „in 30 Tagen zahlen“) oder PayPal spenden.</p>
+    <!-- Hero Section -->
+    <div class="hero">
+        <div class="container">
+            <h1>Unterstütze Oguzhan</h1>
+            <p>Jede Spende hilft, um ein besseres Leben zu schaffen. Vielen Dank für deine Unterstützung!</p>
+            <!-- Stripe Spenden Button -->
+            <a href="https://donate.stripe.com/test_dR65l2eNd6BBcow288" class="cta-button">Jetzt mit Klarna oder Karte spenden</a>
+        </div>
+    </div>
 
-    <!-- Stripe-Zahlungslink -->
-    <a href="https://donate.stripe.com/test_dR65l2eNd6BBcow288" class="button">💜 Jetzt spenden mit Klarna oder Karte</a>
+    <!-- About Section -->
+    <section>
+        <div class="container">
+            <h2>Warum spenden?</h2>
+            <p>SOnst muss ich mienen Arsch verkaufen</p>
+        </div>
+    </section>
 
-    <!-- Optionaler PayPal-Link -->
-    <a href="https://www.paypal.me/yildizog202" class="button paypal">💛 Spenden mit PayPal</a>
+    <!-- How It Works Section -->
+    <section>
+        <div class="container">
+            <h2>Ich hab es wirklich nötig</h2>
+            <p>Spende mal bitte aus korrekt</p>
+        </div>
+    </section>
 
-    <p style="font-size: 0.9em; color: #888;">Danke für deine Unterstützung 🙏</p>
-  </div>
+    <!-- Footer -->
+    <footer>
+        <p>BITTE ICH BRAUCH DAS</p>
+    </footer>
 </body>
 </html>
