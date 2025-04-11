@@ -1,431 +1,240 @@
-/* --- Globale Einstellungen & Variablen --- */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ich bin arm, hab Kaffee – aber kein Geld</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
 
-:root {
-    /* Farbpalette (Modern & Freundlich) */
-    --primary-color: #635bff; /* Haupt-Akzentfarbe (leicht angepasst) */
-    --primary-light: #8f7fff;
-    --secondary-color: #ffc439; /* PayPal Gelb */
-    --secondary-light: #ffd76a;
-    --success-color: #2ecc71; /* Grün für Erfolg/Kaffee */
-    --success-light: #58d68d;
-    --background-start: #eef2f7; /* Heller, sauberer Hintergrund Start */
-    --background-end: #d9e3f0; /* Heller, sauberer Hintergrund Ende */
-    --text-dark: #2c3e50; /* Dunkler Text für Überschriften */
-    --text-medium: #555; /* Normaler Text */
-    --text-light: #7f8c8d; /* Hellerer Text für Hinweise */
-    --card-background: #ffffff; /* Hintergrund für Container/Karten */
-    --border-color: #e0e0e0; /* Dezente Trennlinien/Ränder */
-    --shadow-color: rgba(0, 0, 0, 0.08); /* Weichere Schattenfarbe */
+        .container {
+            text-align: center;
+            padding: 20px;
+        }
 
-    /* Schrift & Abstände */
-    --main-font: 'Poppins', sans-serif;
-    --base-font-size: 16px; /* Basis für rem-Einheiten */
-    --line-height: 1.7; /* Bessere Lesbarkeit */
-    --border-radius-sm: 6px;
-    --border-radius-md: 12px;
-    --border-radius-lg: 20px;
-    --spacing-unit: 1rem; /* Basisabstand (ca. 16px) */
-}
+        h1 {
+            font-size: 36px;
+            color: #333;
+        }
 
-/* --- Basis-Styling --- */
-*, *::before, *::after {
-    box-sizing: border-box; /* Konsistentes Box-Modell */
-    margin: 0;
-    padding: 0;
-}
+        p {
+            font-size: 18px;
+            color: #666;
+        }
 
-html {
-    font-size: var(--base-font-size);
-    scroll-behavior: smooth; /* Sanftes Scrollen bei Ankerlinks (falls vorhanden) */
-}
+        #coffee-section, #donation-section {
+            margin-top: 40px;
+        }
 
-body {
-    font-family: var(--main-font);
-    background: linear-gradient(135deg, var(--background-start) 0%, var(--background-end) 100%);
-    color: var(--text-medium);
-    line-height: var(--line-height);
-    padding: calc(var(--spacing-unit) * 1.5); /* 1.5rem padding */
-    overflow-x: hidden;
-}
+        .coffee-button, .paypal-button {
+            background-color: #ff6600;
+            color: white;
+            padding: 15px 30px;
+            font-size: 18px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 20px;
+        }
 
-/* --- Container & Layout --- */
-.container {
-    max-width: 750px; /* Etwas mehr Platz */
-    margin: calc(var(--spacing-unit) * 2.5) auto; /* Mehr Abstand oben/unten */
-    background: var(--card-background);
-    padding: calc(var(--spacing-unit) * 2.5); /* 2.5rem Innenabstand */
-    border-radius: var(--border-radius-lg); /* Größerer Radius */
-    box-shadow: 0 8px 25px var(--shadow-color), 0 1px 3px var(--shadow-color); /* Weicherer, mehrstufiger Schatten */
-    text-align: center;
-    position: relative;
-    z-index: 1;
-}
+        .coffee-button:hover, .paypal-button:hover {
+            background-color: #e65c00;
+        }
 
-/* --- Typografie --- */
-h1, h2 {
-    color: var(--text-dark);
-    font-weight: 700;
-    margin-bottom: var(--spacing-unit);
-    line-height: 1.3; /* Enger für Überschriften */
-}
+        #coffee-section form {
+            display: inline-block;
+            margin-top: 20px;
+            text-align: left;
+        }
 
-h1 {
-    font-size: clamp(1.8rem, 5vw, 2.5rem); /* Responsive Schriftgröße */
-}
+        #coffee-section label {
+            display: block;
+            margin: 10px 0 5px;
+        }
 
-h2 {
-    font-size: clamp(1.4rem, 4vw, 1.8rem);
-    margin-top: calc(var(--spacing-unit) * 2.5);
-    margin-bottom: calc(var(--spacing-unit) * 1.5);
-    border-bottom: 1px solid var(--border-color); /* Dezente Trennlinie */
-    padding-bottom: calc(var(--spacing-unit) * 0.5);
-    display: inline-block;
-}
+        #coffee-section input {
+            padding: 8px;
+            margin: 5px 0;
+            width: 100%;
+            max-width: 300px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
 
-p {
-    font-size: 1.05rem; /* Leicht größerer Fließtext */
-    margin-bottom: calc(var(--spacing-unit) * 1.2);
-    max-width: 60ch; /* Optimale Zeilenlänge für Lesbarkeit */
-    margin-left: auto; /* Zentriert den Absatz im Container */
-    margin-right: auto;
-}
+        #coffee-thanks {
+            font-size: 20px;
+            color: green;
+            margin-top: 20px;
+        }
 
-a {
-    color: var(--primary-color);
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
+        #popup-character {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            display: none;
+        }
 
-a:hover {
-    color: var(--primary-light);
-}
+        #popup-character img {
+            width: 40px;
+            vertical-align: middle;
+        }
 
-small {
-    font-size: 0.9rem;
-    color: var(--text-light);
-}
+        #edge-character {
+            position: fixed;
+            right: 0;
+            bottom: 50%;
+            transform: translateY(50%);
+            background-color: #ff6600;
+            padding: 10px;
+            border-radius: 50%;
+            display: none;
+        }
 
-hr.separator {
-    border: 0;
-    height: 1px;
-    background: var(--border-color); /* Einheitliche Linienfarbe */
-    margin: calc(var(--spacing-unit) * 2.5) auto; /* Mehr Abstand */
-    width: 80%; /* Nicht volle Breite */
-}
+        #edge-character img {
+            width: 30px;
+            vertical-align: middle;
+        }
 
-/* --- Buttons --- */
-.button-group {
-    margin: calc(var(--spacing-unit) * 2) 0;
-    display: flex; /* Flexbox für bessere Ausrichtung */
-    flex-wrap: wrap; /* Umbruch bei Bedarf */
-    justify-content: center; /* Zentriert die Buttons */
-    gap: var(--spacing-unit); /* Abstand zwischen Buttons */
-}
+        #social-media a {
+            display: inline-block;
+            font-size: 18px;
+            color: #333;
+            text-decoration: none;
+            margin: 10px 15px;
+        }
 
-.button {
-    display: inline-block; /* Bleibt inline-block für Textfluss */
-    padding: calc(var(--spacing-unit) * 0.9) calc(var(--spacing-unit) * 2); /* Leicht angepasstes Padding */
-    font-size: 1rem; /* Standardgröße */
-    font-weight: 600;
-    color: white;
-    text-align: center;
-    border: none;
-    border-radius: var(--border-radius-md); /* Einheitlicher Radius */
-    transition: all 0.3s ease;
-    cursor: pointer;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtiler Startschatten */
-    text-decoration: none; /* Sicherstellen, dass kein Unterstrich da ist */
-    flex-shrink: 0; /* Verhindert, dass Buttons zu stark schrumpfen */
-}
+        #social-media a:hover {
+            color: #ff6600;
+        }
 
-.button:hover,
-.button:focus-visible { /* :focus-visible für bessere Accessibility */
-    transform: translateY(-4px) scale(1.02); /* Deutlicherer Hover/Focus Effekt */
-    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15); /* Stärkerer Schatten bei Interaktion */
-    outline: none; /* Standard-Outline entfernen */
-}
+        footer {
+            margin-top: 40px;
+        }
 
-.button:active {
-    transform: translateY(-1px); /* Leichter Klick-Effekt */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
+        .footer-thanks {
+            font-size: 18px;
+            color: #333;
+        }
 
-/* Spezifische Button-Farben mit Variablen */
-.stripe-button {
-    background: linear-gradient(45deg, var(--primary-color), var(--primary-light));
-}
+        .social-icons {
+            margin-top: 20px;
+        }
 
-.paypal-button {
-    background: linear-gradient(45deg, var(--secondary-color), var(--secondary-light));
-    color: var(--text-dark); /* Dunkler Text für Gelb */
-}
+        .social-icons a {
+            font-size: 24px;
+        }
 
-.coffee-button {
-    background: linear-gradient(45deg, var(--success-color), var(--success-light));
-    margin-top: var(--spacing-unit); /* Abstand nach oben */
-}
+        .social-icons a:hover {
+            color: #ff6600;
+        }
 
-/* --- Formular-Styling (Kaffee-Sektion) --- */
-#coffee-section label {
-    display: block;
-    margin: var(--spacing-unit) 0 calc(var(--spacing-unit) * 0.5) 0;
-    font-weight: 600;
-    color: var(--text-dark);
-    text-align: left; /* Labels linksbündig für bessere Lesbarkeit */
-    max-width: 350px; /* Maximale Breite begrenzen */
-    margin-left: auto;
-    margin-right: auto;
-}
+        .visible {
+            display: block !important;
+        }
 
-#coffee-section input[type="date"],
-#coffee-section input[type="time"] {
-    display: block; /* Untereinander */
-    width: 100%;
-    max-width: 350px; /* Maximale Breite begrenzen */
-    padding: calc(var(--spacing-unit) * 0.75);
-    border: 1px solid var(--border-color);
-    border-radius: var(--border-radius-sm);
-    margin-bottom: var(--spacing-unit);
-    font-family: var(--main-font);
-    font-size: 1rem;
-    background-color: #f8f9fa; /* Leicht grauer Hintergrund für Inputs */
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
-    margin-left: auto; /* Zentrieren */
-    margin-right: auto; /* Zentrieren */
-}
+        .peek-in {
+            display: block !important;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Hauptüberschrift -->
+        <h1>Ich bin arm, hab Kaffee – aber kein Geld</h1>
+        
+        <!-- Humorvolle Einführung -->
+        <p>Du hast einen Kaffee verdient! Aber mein Portemonnaie... nicht so sehr. Wirst du mein Retter in der Not? 😢</p>
 
-#coffee-section input[type="date"]:focus,
-#coffee-section input[type="time"]:focus {
-    outline: none;
-    border-color: var(--primary-color);
-    box-shadow: 0 0 0 3px rgba(99, 91, 255, 0.2); /* Focus-Ring in Akzentfarbe */
-}
+        <!-- Kaffee buchen Formular -->
+        <section id="coffee-section">
+            <h2>Wie viele Kaffees brauchst du, damit ich überlebe?</h2>
+            <form action="#" method="POST">
+                <label for="coffee-date">Datum</label>
+                <input type="date" id="coffee-date" name="coffee-date" required>
 
-#coffee-thanks {
-    margin-top: var(--spacing-unit);
-    font-weight: 600;
-    color: var(--success-color);
-    background-color: rgba(46, 204, 113, 0.1); /* Heller grüner Hintergrund */
-    padding: calc(var(--spacing-unit) * 0.5);
-    border-radius: var(--border-radius-sm);
-    max-width: 400px;
-    margin-left: auto;
-    margin-right: auto;
-    border: 1px solid rgba(46, 204, 113, 0.2);
-}
+                <label for="coffee-time">Uhrzeit</label>
+                <input type="time" id="coffee-time" name="coffee-time" required>
 
-#coffee-section small {
-    display: block;
-    margin-top: var(--spacing-unit);
-    font-style: italic;
-}
+                <label for="coffee-count">Anzahl Kaffees</label>
+                <input type="number" id="coffee-count" name="coffee-count" min="1" max="10" required>
 
-/* --- Sektionen als "Karten" (optional, subtiler Effekt) --- */
-#coffee-section,
-#social-media {
-   /* Optional: Leichter Hintergrund oder Rand, um sie abzuheben */
-   /* background-color: #fdfdfd; */
-   /* border: 1px solid #f0f0f0; */
-   padding: var(--spacing-unit);
-   border-radius: var(--border-radius-md);
-   margin-top: calc(var(--spacing-unit) * 2);
-}
+                <button type="submit" class="coffee-button">Kaffee buchen und mich retten!</button>
+            </form>
 
-/* --- Social Media Icons --- */
-#social-media .social-icons {
-    margin-top: var(--spacing-unit);
-    display: flex;
-    justify-content: center;
-    gap: calc(var(--spacing-unit) * 1.5); /* Mehr Abstand zwischen Icons */
-}
+            <p id="coffee-thanks" style="display:none;">Danke für die Rettung! Du bist ein Held. ☕️</p>
+        </section>
 
-#social-media .social-icons a {
-    color: var(--text-medium); /* Dezenter Start */
-    font-size: 1.6rem; /* Leicht verkleinert */
-    transition: color 0.3s ease, transform 0.3s ease;
-}
+        <!-- Spendenaufruf -->
+        <section id="donation-section">
+            <h2>Willst du mein Kaffeekonto auffüllen?</h2>
+            <p>💸 Spende jetzt oder ich weine. Und du willst doch nicht, dass ich weine, oder?</p>
+            <a href="https://www.paypal.com/donate" class="button paypal-button" target="_blank">💸 Spende jetzt oder ich weine</a>
+        </section>
 
-#social-media .social-icons a:hover,
-#social-media .social-icons a:focus-visible {
-    color: var(--primary-color);
-    transform: translateY(-3px) scale(1.1); /* Deutlicherer Hover/Fokus */
-    outline: none;
-}
+        <!-- Pop-up Charakter der nach Spenden fragt -->
+        <div id="popup-character">
+            <img src="https://via.placeholder.com/50" alt="Charakter" />
+            <p>Warum spendest du nicht? 😢</p>
+        </div>
 
-/* --- Footer --- */
-.footer-thanks {
-    margin-top: calc(var(--spacing-unit) * 2.5);
-    font-size: 0.9em;
-    color: var(--text-light);
-}
+        <!-- "Fenster-Nervi™" Charakter -->
+        <div id="edge-character">
+            <img src="https://via.placeholder.com/40" alt="Fenster-Nervi™" />
+            <span>Ey, spende mal!</span>
+        </div>
 
-/* ---- Interaktive Elemente (Modernisiert) ---- */
+        <!-- Social Media Links -->
+        <section id="social-media">
+            <h2>Folge mir auf Social Media (und werd reich! – nicht garantiert)</h2>
+            <div class="social-icons">
+                <a href="#" target="_blank">🐦 Twitter</a>
+                <a href="#" target="_blank">📸 Instagram</a>
+                <a href="#" target="_blank">👍 Facebook</a>
+            </div>
+        </section>
 
-/* Popup-Charakter Styling */
-#popup-character {
-    position: fixed;
-    bottom: 20px;
-    right: -450px; /* Etwas weiter raus starten */
-    width: clamp(280px, 80vw, 350px); /* Responsive Breite */
-    background: var(--card-background);
-    border-radius: var(--border-radius-md);
-    padding: calc(var(--spacing-unit) * 1.5);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.15), 0 2px 5px rgba(0,0,0,0.1); /* Deutlicherer Schatten */
-    z-index: 1000;
-    text-align: center;
-    opacity: 0;
-    visibility: hidden;
-    transform: translateX(20px); /* Leichte Verschiebung für Animation */
-    transition: opacity 0.4s ease-out, visibility 0s 0.4s, right 0.5s ease-in-out, transform 0.4s ease-out;
-}
+        <!-- Footer -->
+        <footer>
+            <p class="footer-thanks">Danke fürs Vorbeischauen, du heldenhafter Kaffeetrinker! ❤️</p>
+        </footer>
+    </div>
 
-#popup-character.visible {
-    right: 20px;
-    opacity: 1;
-    visibility: visible;
-    transform: translateX(0);
-    transition: opacity 0.4s ease-out, visibility 0s 0s, right 0.5s ease-in-out, transform 0.4s ease-out;
-}
+    <!-- Skript für Popups und Interaktionen -->
+    <script>
+        // Popup-Charakter Animation
+        let popupCharacter = document.getElementById('popup-character');
+        setInterval(() => {
+            popupCharacter.classList.toggle('visible');
+        }, 4000);
 
-#popup-character img {
-    max-width: 45px; /* Leicht kleiner */
-    margin-bottom: var(--spacing-unit);
-    border-radius: 50%;
-    background-color: #eee; /* Hintergrund für Platzhalter */
-}
+        // Formular für Kaffee-Buchung - Bestätigungsnachricht anzeigen
+        const coffeeForm = document.querySelector('#coffee-section form');
+        const coffeeThanksMessage = document.getElementById('coffee-thanks');
 
-#popup-character p {
-    font-size: 1rem;
-    color: var(--text-medium);
-    margin-bottom: var(--spacing-unit);
-}
+        coffeeForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            coffeeThanksMessage.style.display = 'block';
+        });
 
-#close-popup {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background: #f0f0f0;
-    color: var(--text-medium);
-    border: none;
-    border-radius: 50%;
-    width: 30px; /* Größerer Klickbereich */
-    height: 30px;
-    font-weight: bold;
-    font-size: 1rem;
-    line-height: 30px; /* Zentriert das 'X' */
-    cursor: pointer;
-    transition: background 0.3s ease, color 0.3s ease, transform 0.2s ease;
-}
-#close-popup:hover {
-    background: #e0e0e0;
-    color: var(--text-dark);
-    transform: scale(1.1);
-}
-
-.small-popup-button {
-    padding: calc(var(--spacing-unit)*0.6) calc(var(--spacing-unit)*1.2);
-    font-size: 0.9rem;
-    margin-top: calc(var(--spacing-unit)*0.5);
-}
-
-/* Edge-Charakter Styling & Animation */
-#edge-character {
-    position: fixed;
-    bottom: 15px;
-    left: -180px; /* Startet weiter links außen */
-    width: auto; /* Automatische Breite */
-    max-width: 160px; /* Begrenzung */
-    background: rgba(255, 255, 255, 0.95); /* Etwas weniger transparent */
-    padding: calc(var(--spacing-unit)*0.8);
-    border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0;
-    box-shadow: 3px 3px 12px rgba(0,0,0,0.1);
-    z-index: 999;
-    display: flex;
-    align-items: center;
-    /* Cooler "Bounce"-Effekt, angepasst */
-    transition: left 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
-#edge-character img {
-    width: 40px;
-    height: 40px;
-    object-fit: cover; /* Falls Bilder andere Proportionen haben */
-    margin-right: calc(var(--spacing-unit)*0.8);
-    border-radius: 50%; /* Rundes Bild */
-    background-color: #eee;
-    flex-shrink: 0; /* Bild soll nicht schrumpfen */
-}
-
-#edge-character span {
-    font-size: 0.85rem;
-    color: var(--text-dark);
-    font-weight: 600;
-    display: none; /* Initial versteckt */
-    opacity: 0;
-    transition: opacity 0.3s ease 0.2s; /* Text erscheint leicht verzögert */
-}
-
-#edge-character.peek-in {
-    left: 0;
-}
-
-#edge-character.peek-in span {
-    display: inline;
-    opacity: 1;
-}
-
-/* --- Responsivität --- */
-@media (max-width: 768px) {
-    .container {
-        margin: var(--spacing-unit) auto;
-        padding: var(--spacing-unit);
-    }
-
-    h1 { font-size: 1.8rem; }
-    h2 { font-size: 1.4rem; }
-    p { font-size: 1rem; }
-
-    .button-group {
-        flex-direction: column; /* Buttons untereinander auf Mobile */
-        align-items: center;
-        gap: calc(var(--spacing-unit) * 0.8);
-    }
-
-    .button {
-        width: 90%; /* Buttons fast volle Breite */
-        max-width: 350px; /* Aber nicht zu breit */
-        padding: calc(var(--spacing-unit) * 0.9) var(--spacing-unit);
-    }
-
-    #coffee-section input[type="date"],
-    #coffee-section input[type="time"],
-    #coffee-section label {
-        max-width: 90%; /* Inputs nutzen verfügbare Breite */
-    }
-
-    #popup-character {
-        width: calc(100% - 30px); /* Fast volle Breite, kleiner Rand */
-        bottom: 10px;
-        right: -100%; /* Außerhalb basierend auf Breite */
-        left: 15px; /* Feste Position links */
-        padding: var(--spacing-unit);
-    }
-     #popup-character.visible {
-        right: auto;
-        left: 15px;
-    }
-}
-
-@media (max-width: 480px) {
-    body { padding: var(--spacing-unit); }
-    .container { padding: var(--spacing-unit); }
-    h1 { font-size: 1.6rem; }
-    h2 { font-size: 1.3rem; }
-    p { font-size: 0.95rem; }
-
-    /* Edge-Charakter auf sehr kleinen Bildschirmen ausblenden */
-    #edge-character {
-        display: none;
-    }
-}
+        // Fenster-Nervi™ Animation
+        let edgeCharacter = document.getElementById('edge-character');
+        setInterval(() => {
+            edgeCharacter.classList.toggle('peek-in');
+        }, 6000);
+    </script>
+</body>
+</html>
