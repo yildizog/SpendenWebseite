@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Oguzhans Notgroschen-Sammlung</title>
+    <title>Spende für den armen Oguzhan</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         /* Base styles */
@@ -11,7 +11,7 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Comic Sans MS', 'Nunito', 'Arial', sans-serif; /* Added Comic Sans for maximum fun */
+            font-family: 'Comic Sans MS', 'Arial', sans-serif;
         }
 
         body {
@@ -25,6 +25,7 @@
 
         h1, h2, h3 {
             color: #fff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         }
 
         /* Navigation Bar Styles */
@@ -59,7 +60,6 @@
 
         .logo:hover {
             color: #ff6b6b;
-            transform: rotate(3deg) scale(1.05);
         }
 
         .nav-links {
@@ -78,7 +78,6 @@
 
         .nav-links a:hover {
             color: #ff6b6b;
-            transform: scale(1.1);
         }
 
         .nav-links a::after {
@@ -105,7 +104,7 @@
 
         .donate-nav-btn:hover {
             background: #ff4757;
-            transform: translateY(-3px) rotate(3deg);
+            transform: translateY(-3px);
             box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
         }
 
@@ -126,7 +125,7 @@
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, #6a11cb, #2575fc, #00d4ff);
+            background: linear-gradient(135deg, #ff6b6b, #ff8e8e, #ffb3b3);
             background-size: 300% 300%;
             animation: gradient 15s ease infinite, floatUp 3s ease-in-out infinite alternate;
             min-height: 100vh;
@@ -155,7 +154,7 @@
         }
 
         .hero h1 {
-            font-size: 4rem;
+            font-size: 5rem;
             margin-bottom: 20px;
             position: relative;
             display: inline-block;
@@ -164,10 +163,10 @@
         .hero h1::after {
             content: "💸";
             position: absolute;
-            right: -60px;
+            right: -50px;
             top: 0;
             font-size: 3rem;
-            animation: float 2s ease-in-out infinite;
+            animation: rocket 2s ease-in-out infinite;
         }
 
         .hero p {
@@ -204,7 +203,7 @@
             text-decoration: none;
             display: inline-block;
             transition: all 0.3s ease;
-            margin: 30px 10px 0;
+            margin-top: 30px;
             position: relative;
             overflow: hidden;
             box-shadow: 0 6px 20px rgba(255, 107, 107, 0.4);
@@ -212,18 +211,8 @@
 
         .cta-button:hover {
             background: #ff4757;
-            transform: translateY(-5px) rotate(2deg);
+            transform: translateY(-5px);
             box-shadow: 0 10px 25px rgba(255, 107, 107, 0.5);
-        }
-
-        .cta-button.paypal {
-            background: #0070ba;
-            box-shadow: 0 6px 20px rgba(0, 112, 186, 0.4);
-        }
-
-        .cta-button.paypal:hover {
-            background: #005ea6;
-            box-shadow: 0 10px 25px rgba(0, 112, 186, 0.5);
         }
 
         .cta-button:active {
@@ -279,7 +268,7 @@
             transform: translateX(-50%);
             width: 60px;
             height: 3px;
-            background: linear-gradient(to right, #ff6b6b, #2575fc);
+            background: linear-gradient(to right, #ff6b6b, #ff8e8e);
         }
 
         .section-content {
@@ -314,21 +303,22 @@
 
         .progress-bar {
             height: 100%;
-            width: 3%;
-            background: linear-gradient(to right, #ff6b6b, #ff9966);
+            width: 10%;
+            background: linear-gradient(to right, #ff8e8e, #ff6b6b);
             border-radius: 15px;
             position: relative;
             animation: progress 2s ease-out;
         }
 
         .progress-bar::after {
-            content: "3%";
+            content: "10% (Ich bin so arm 😭)";
             position: absolute;
             right: 10px;
             top: 50%;
             transform: translateY(-50%);
             color: white;
             font-weight: bold;
+            font-size: 0.8rem;
         }
 
         .emoji-rain {
@@ -390,7 +380,7 @@
         }
 
         .testimonial:hover {
-            transform: translateY(-10px) rotate(2deg);
+            transform: translateY(-10px);
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
         }
 
@@ -441,7 +431,7 @@
         }
 
         .social-button:hover {
-            transform: scale(1.1) rotate(15deg);
+            transform: scale(1.1) rotate(5deg);
         }
 
         .social-button.instagram {
@@ -483,7 +473,7 @@
         }
 
         .date-card:hover {
-            transform: translateY(-15px) rotate(3deg);
+            transform: translateY(-15px);
             box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
         }
 
@@ -494,7 +484,7 @@
             left: 0;
             width: 100%;
             height: 5px;
-            background: linear-gradient(to right, #ff6b6b, #2575fc);
+            background: linear-gradient(to right, #ff6b6b, #ff8e8e);
         }
 
         .date-icon {
@@ -517,25 +507,8 @@
         .date-price {
             font-size: 1.8rem;
             font-weight: bold;
-            color: #ff6b6b;
+            color: #ffd700;
             margin-bottom: 20px;
-            position: relative;
-            display: inline-block;
-        }
-
-        .date-price::after {
-            content: "🥲";
-            position: absolute;
-            top: 0;
-            right: -30px;
-            font-size: 1.2rem;
-        }
-
-        .original-price {
-            text-decoration: line-through;
-            font-size: 1rem;
-            color: #999;
-            margin-right: 10px;
         }
 
         .date-button {
@@ -552,100 +525,20 @@
 
         .date-button:hover {
             background: #ff4757;
-            transform: scale(1.05) rotate(2deg);
+            transform: scale(1.05);
         }
 
         .date-badge {
             position: absolute;
             top: 20px;
             right: -30px;
-            background: #ff6b6b;
-            color: white;
+            background: #ffd700;
+            color: #333;
             transform: rotate(45deg);
             padding: 5px 30px;
             font-size: 0.8rem;
             font-weight: bold;
             z-index: 1;
-        }
-
-        /* Coffee booking modal */
-        .coffee-modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            z-index: 2000;
-            align-items: center;
-            justify-content: center;
-            backdrop-filter: blur(5px);
-        }
-
-        .coffee-modal-content {
-            background: #222;
-            padding: 30px;
-            border-radius: 15px;
-            position: relative;
-            max-width: 500px;
-            width: 90%;
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
-            text-align: center;
-            animation: modalShow 0.5s ease;
-        }
-
-        .close-modal {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: #bbb;
-            transition: all 0.3s ease;
-        }
-
-        .close-modal:hover {
-            color: white;
-            transform: rotate(90deg);
-        }
-
-        .date-picker-container {
-            margin: 20px 0;
-        }
-
-        .date-picker, .time-picker {
-            width: 100%;
-            padding: 12px;
-            margin-bottom: 15px;
-            border-radius: 10px;
-            border: none;
-            background: rgba(255, 255, 255, 0.1);
-            color: white;
-            font-size: 1rem;
-        }
-
-        .date-picker:focus, .time-picker:focus {
-            outline: none;
-            box-shadow: 0 0 0 2px #ff6b6b;
-        }
-
-        .book-now-btn {
-            background: #ff6b6b;
-            color: white;
-            padding: 15px 30px;
-            border: none;
-            border-radius: 50px;
-            font-size: 1.1rem;
-            font-weight: bold;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            margin-top: 15px;
-        }
-
-        .book-now-btn:hover {
-            background: #ff4757;
-            transform: translateY(-3px);
         }
 
         /* Featured Content */
@@ -675,17 +568,6 @@
             position: relative;
             border-radius: 15px;
             overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .video-placeholder::after {
-            content: "Diese Kamera könnte ich mir leisten, wenn ihr spendet 📸";
-            position: absolute;
-            font-size: 1.2rem;
-            padding: 0 20px;
-            text-align: center;
         }
 
         .play-button {
@@ -761,56 +643,9 @@
             padding: 0 20px 20px;
         }
 
-        /* Fun elements */
-        .fun-meter {
-            margin: 40px auto;
-            max-width: 600px;
-            text-align: center;
-        }
-
-        .fun-meter h3 {
-            margin-bottom: 15px;
-            position: relative;
-            display: inline-block;
-        }
-
-        .fun-meter h3::after {
-            content: "🎭";
-            position: absolute;
-            right: -30px;
-            top: 0;
-        }
-
-        .fun-level {
-            display: flex;
-            justify-content: space-between;
-            background: rgba(0, 0, 0, 0.2);
-            border-radius: 50px;
-            padding: 5px;
-            margin-top: 10px;
-        }
-
-        .fun-option {
-            flex: 1;
-            padding: 10px;
-            text-align: center;
-            border-radius: 50px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .fun-option:hover {
-            background: rgba(255, 255, 255, 0.1);
-        }
-
-        .fun-option.active {
-            background: #ff6b6b;
-            font-weight: bold;
-        }
-
         /* Newsletter */
         .newsletter {
-            background: linear-gradient(45deg, #ff6b6b, #2575fc);
+            background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
             padding: 50px 20px;
             border-radius: 10px;
             margin: 50px 0;
@@ -837,7 +672,7 @@
         }
 
         .newsletter-button {
-            background: #000;
+            background: #333;
             color: white;
             padding: 15px 30px;
             border: none;
@@ -849,8 +684,8 @@
         }
 
         .newsletter-button:hover {
-            background: #333;
-            transform: scale(1.05) rotate(2deg);
+            background: #444;
+            transform: scale(1.05);
         }
 
         /* Footer */
@@ -908,91 +743,128 @@
 
         .sound-toggle:hover {
             background: rgba(255, 255, 255, 0.2);
-            transform: rotate(15deg);
         }
 
-        /* Mini Game */
-        .mini-game {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 50px;
-            height: 50px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            z-index: 999;
-            color: white;
-            font-size: 1.2rem;
-            transition: all 0.3s ease;
-        }
-
-        .mini-game:hover {
-            background: rgba(255, 255, 255, 0.2);
-            transform: rotate(-15deg);
-        }
-
-        .game-container {
+        /* Gift Modal */
+        .modal {
             display: none;
             position: fixed;
-            bottom: 90px;
-            right: 30px;
-            width: 300px;
-            height: 300px;
-            background: #222;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-            z-index: 998;
-            overflow: hidden;
-        }
-
-        .game-content {
+            top: 0;
+            left: 0;
             width: 100%;
             height: 100%;
-            display: flex;
-            flex-direction: column;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
             align-items: center;
             justify-content: center;
-            padding: 20px;
+            backdrop-filter: blur(5px);
         }
 
-        .game-title {
-            margin-bottom: 15px;
-            font-size: 1.2rem;
-            font-weight: bold;
+        .modal-content {
+            background: #222;
+            padding: 30px;
+            border-radius: 15px;
+            position: relative;
+            max-width: 500px;
+            width: 90%;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            animation: modalShow 0.5s ease;
         }
 
-        .coin-game {
-            width: 100px;
-            height: 100px;
-            background: #ffd700;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 15px;
             font-size: 1.5rem;
-            color: #333;
+            cursor: pointer;
+            color: #bbb;
+            transition: all 0.3s ease;
+        }
+
+        .close-modal:hover {
+            color: white;
+            transform: rotate(90deg);
+        }
+
+        .gift-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        .gift-option {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 15px;
+            border-radius: 10px;
             cursor: pointer;
             transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.5);
-            user-select: none;
+            width: 120px;
         }
 
-        .coin-game:hover {
-            transform: scale(1.1);
+        .gift-option:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-5px);
         }
 
-        .coin-game:active {
-            transform: scale(0.95);
+        .gift-amount {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #ff6b6b;
         }
 
-        .game-score {
+        /* Date Booking Modal */
+        .date-modal-content {
+            background: #222;
+            padding: 30px;
+            border-radius: 15px;
+            position: relative;
+            max-width: 600px;
+            width: 90%;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            animation: modalShow 0.5s ease;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border-radius: 8px;
+            border: none;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            font-size: 1rem;
+        }
+
+        .submit-booking {
+            background: #ff6b6b;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
             margin-top: 20px;
-            font-size: 1.2rem;
+        }
+
+        .submit-booking:hover {
+            background: #ff4757;
+            transform: scale(1.05);
         }
 
         /* Toast notifications */
@@ -1017,17 +889,311 @@
             transform: translateX(-50%) translateY(-20px);
         }
 
-        /* Random discount popup */
-        .discount-popup {
-            display: none;
+        /* Beggar Popup */
+        .beggar-popup {
             position: fixed;
             bottom: 20px;
             right: 20px;
-            background: linear-gradient(45deg, #ff6b6b, #ff9966);
+            background: #ff6b6b;
+            color: white;
             padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
             z-index: 999;
             max-width: 300px;
-            animation: bounceIn 0.5s ease;
+            transform: translateY(150%);
+            transition: transform 0.5s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
+
+        .beggar-popup.show {
+            transform: translateY(0);
+        }
+
+        .beggar-popup img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 10px;
+            border: 3px solid white;
+        }
+
+        .beggar-message {
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .beggar-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .beggar-btn {
+            padding: 8px 15px;
+            border-radius: 20px;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .beggar-donate {
+            background: white;
+            color: #ff6b6b;
+        }
+
+        .beggar-donate:hover {
+            background: #f0f0f0;
+        }
+
+        .beggar-later {
+            background: transparent;
+            color: white;
+            border: 1px solid white;
+        }
+
+        .beggar-later:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        /* PayPal Button */
+        .paypal-button {
+            background: #0070ba;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            margin: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .paypal-button:hover {
+            background: #005ea6;
+            transform: scale(1.05);
+        }
+
+        /* Animations */
+        @keyframes gradient {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(0);
+            }
+            100% {
+                transform: translateY(-20px);
+            }
+        }
+
+        @keyframes rocket {
+            0%, 100% {
+                transform: translateY(0) rotate(10deg);
+            }
+            50% {
+                transform: translateY(-10px) rotate(10deg);
+            }
+        }
+
+        @keyframes fallDown {
+            0% {
+                transform: translateY(-100vh);
+            }
+            100% {
+                transform: translateY(100vh);
+            }
+        }
+
+        @keyframes emojifall {
+            0% {
+                transform: translateY(-100vh) rotate(0deg);
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+            }
+        }
+
+        @keyframes progress {
+            0% {
+                width: 0%;
+            }
+            100% {
+                width: 10%;
+            }
+        }
+
+        @keyframes modalShow {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* Easter Egg */
+        .konami-code {
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.3);
+            z-index: 100;
+        }
+
+        /* Responsiveness */
+        @media (max-width: 768px) {
+            body {
+                padding-top: 60px;
+            }
+            
+            .hero h1 {
+                font-size: 3rem;
+            }
+
+            .hero h1::after {
+                right: -30px;
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .counter {
+                font-size: 2rem;
+                min-width: 60px;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 60px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 60px);
+                background: rgba(0, 0, 0, 0.9);
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 30px;
+                transition: all 0.5s ease;
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .beggar-popup {
+                max-width: 250px;
+                right: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">Oguzhan YDZ</a>
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#about">Über Mich</a></li>
+                <li><a href="#meet">Triff Mich</a></li>
+                <li><a href="#social">Social Media</a></li>
+                <li><a href="#faq">FAQ</a></li>
+                <li><a href="#" class="donate-nav-btn" id="donate-nav-btn">Spenden</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="hero">
+        <div class="hero-content">
+            <h1>Spende für den armen Oguzhan</h1>
+            <p>Ich habe nur 3,50€ auf dem Konto und muss bis Monatsende überleben! Deine Spende rettet mich vor dem Hungertod! 🍕</p>
+            <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 15px;">
+                <a href="https://donate.stripe.com/cN2bMt6dp6G5eFq288" class="cta-button">Jetzt spenden (Stripe)</a>
+                <a href="#" class="paypal-button" id="paypal-button">
+                    <i class="fab fa-paypal"></i> Mit PayPal spenden
+                </a>
+            </div>
+        </div>
+        
+        <!-- Animated coins -->
+        <div class="coin" style="left: 10%; animation-duration: 15s; animation-delay: 0s;"></div>
+        <div class="coin" style="left: 20%; animation-duration: 20s; animation-delay: 2s;"></div>
+        <div class="coin" style="left: 50%; animation-duration: 25s; animation-delay: 1s;"></div>
+        <div class="coin" style="left: 70%; animation-duration: 18s; animation-delay: 3s;"></div>
+        <div class="coin" style="left: 90%; animation-duration: 22s; animation-delay: 0.5s;"></div>
+    </div>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">Über Mich (und meine leere Brieftasche)</h2>
+            <div class="section-content">
+                <p>Hallo! Ich bin Oguzhan, ein armer Entwickler, der versucht, irgendwie über die Runden zu kommen. Mein Kühlschrank ist leer, mein Konto auch, und meine Katze schaut mich schon ganz vorwurfsvoll an. 😿</p>
+                <p>Jede Spende hilft mir:</p>
+                <ul style="text-align: left; margin: 20px 0; padding-left: 20px;">
+                    <li>Einen Döner zu kaufen (ich träume schon davon)</li>
+                    <li>Meine Stromrechnung zu bezahlen (das Licht geht bald aus!)</li>
+                    <li>Meine Katze zu füttern (sie wird sonst böse)</li>
+                    <li>Internet zu haben (wie soll ich sonst memes posten?)</li>
+                </ul>
+            </div>
+            
+            <div class="donation-goal">
+                <h3>Mein Spendenziel (für Essen und so)</h3>
+                <div class="progress-container">
+                    <div class="progress-bar"></div>
+                </div>
+                <p>Ich habe erst 10% meines Ziels erreicht... das reicht nicht mal für ein Brot 😭</p>
+            </div>
+
+            <div class="counter-container">
+                <div>Letzte Spende vor</div>
+                <div class="counter" id="last-donation-counter">3</div>
+                <div>Tagen</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Meet Section -->
+    <section id="meet">
+        <div class="container">
+            <h2 class="section-title">Triff Mich (wenn du mir Essen kaufst)</h2>
+            <div class="section-content">
+                <p>Ich treffe mich mit dir - aber nur wenn du mir was zu essen kaufst! Hier sind meine "Angebote":</p>
+            </div>
+            
+            <div class="date-options">
+                <div class="date-card">
+                    <div class="date-icon"><i class="fas fa-coffee"></i></div>
+                    <h3 class="date-title">Kaffee & Chat</h3>
+                    <p class="date-description">Ich trinke deinen Kaffee und höre dir zu, während ich überlege, wie ich meine nächste Rechnung bezahle.</p>
+                    <div class="date-price
