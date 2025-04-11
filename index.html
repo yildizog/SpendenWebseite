@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Spende für Oguzhan</title>
+    <title>Oguzhans Notgroschen-Sammlung</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         /* Base styles */
@@ -11,7 +11,7 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Nunito', 'Arial', sans-serif;
+            font-family: 'Comic Sans MS', 'Nunito', 'Arial', sans-serif; /* Added Comic Sans for maximum fun */
         }
 
         body {
@@ -20,7 +20,7 @@
             line-height: 1.6;
             font-size: 18px;
             overflow-x: hidden;
-            padding-top: 70px; /* Added for fixed navbar */
+            padding-top: 70px;
         }
 
         h1, h2, h3 {
@@ -58,7 +58,8 @@
         }
 
         .logo:hover {
-            color: #6a11cb;
+            color: #ff6b6b;
+            transform: rotate(3deg) scale(1.05);
         }
 
         .nav-links {
@@ -76,7 +77,8 @@
         }
 
         .nav-links a:hover {
-            color: #6a11cb;
+            color: #ff6b6b;
+            transform: scale(1.1);
         }
 
         .nav-links a::after {
@@ -86,7 +88,7 @@
             left: 0;
             width: 0;
             height: 2px;
-            background: #6a11cb;
+            background: #ff6b6b;
             transition: width 0.3s ease;
         }
 
@@ -103,7 +105,7 @@
 
         .donate-nav-btn:hover {
             background: #ff4757;
-            transform: translateY(-3px);
+            transform: translateY(-3px) rotate(3deg);
             box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
         }
 
@@ -153,19 +155,19 @@
         }
 
         .hero h1 {
-            font-size: 5rem;
+            font-size: 4rem;
             margin-bottom: 20px;
             position: relative;
             display: inline-block;
         }
 
         .hero h1::after {
-            content: "🚀";
+            content: "💸";
             position: absolute;
-            right: -50px;
+            right: -60px;
             top: 0;
             font-size: 3rem;
-            animation: rocket 2s ease-in-out infinite;
+            animation: float 2s ease-in-out infinite;
         }
 
         .hero p {
@@ -202,7 +204,7 @@
             text-decoration: none;
             display: inline-block;
             transition: all 0.3s ease;
-            margin-top: 30px;
+            margin: 30px 10px 0;
             position: relative;
             overflow: hidden;
             box-shadow: 0 6px 20px rgba(255, 107, 107, 0.4);
@@ -210,8 +212,18 @@
 
         .cta-button:hover {
             background: #ff4757;
-            transform: translateY(-5px);
+            transform: translateY(-5px) rotate(2deg);
             box-shadow: 0 10px 25px rgba(255, 107, 107, 0.5);
+        }
+
+        .cta-button.paypal {
+            background: #0070ba;
+            box-shadow: 0 6px 20px rgba(0, 112, 186, 0.4);
+        }
+
+        .cta-button.paypal:hover {
+            background: #005ea6;
+            box-shadow: 0 10px 25px rgba(0, 112, 186, 0.5);
         }
 
         .cta-button:active {
@@ -267,7 +279,7 @@
             transform: translateX(-50%);
             width: 60px;
             height: 3px;
-            background: linear-gradient(to right, #6a11cb, #2575fc);
+            background: linear-gradient(to right, #ff6b6b, #2575fc);
         }
 
         .section-content {
@@ -302,15 +314,15 @@
 
         .progress-bar {
             height: 100%;
-            width: 35%;
-            background: linear-gradient(to right, #2575fc, #6a11cb);
+            width: 3%;
+            background: linear-gradient(to right, #ff6b6b, #ff9966);
             border-radius: 15px;
             position: relative;
             animation: progress 2s ease-out;
         }
 
         .progress-bar::after {
-            content: "35%";
+            content: "3%";
             position: absolute;
             right: 10px;
             top: 50%;
@@ -347,7 +359,7 @@
         .counter {
             font-size: 3rem;
             font-weight: bold;
-            color: #2575fc;
+            color: #ff6b6b;
             background: rgba(0, 0, 0, 0.2);
             padding: 10px 20px;
             border-radius: 10px;
@@ -378,7 +390,7 @@
         }
 
         .testimonial:hover {
-            transform: translateY(-10px);
+            transform: translateY(-10px) rotate(2deg);
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
         }
 
@@ -402,7 +414,7 @@
 
         .testimonial-author {
             font-weight: bold;
-            color: #6a11cb;
+            color: #ff6b6b;
         }
 
         /* Social Media */
@@ -429,7 +441,7 @@
         }
 
         .social-button:hover {
-            transform: scale(1.1) rotate(5deg);
+            transform: scale(1.1) rotate(15deg);
         }
 
         .social-button.instagram {
@@ -471,7 +483,7 @@
         }
 
         .date-card:hover {
-            transform: translateY(-15px);
+            transform: translateY(-15px) rotate(3deg);
             box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
         }
 
@@ -482,13 +494,13 @@
             left: 0;
             width: 100%;
             height: 5px;
-            background: linear-gradient(to right, #6a11cb, #2575fc);
+            background: linear-gradient(to right, #ff6b6b, #2575fc);
         }
 
         .date-icon {
             font-size: 3rem;
             margin-bottom: 20px;
-            color: #2575fc;
+            color: #ff6b6b;
         }
 
         .date-title {
@@ -507,10 +519,27 @@
             font-weight: bold;
             color: #ff6b6b;
             margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .date-price::after {
+            content: "🥲";
+            position: absolute;
+            top: 0;
+            right: -30px;
+            font-size: 1.2rem;
+        }
+
+        .original-price {
+            text-decoration: line-through;
+            font-size: 1rem;
+            color: #999;
+            margin-right: 10px;
         }
 
         .date-button {
-            background: #2575fc;
+            background: #ff6b6b;
             color: white;
             padding: 12px 25px;
             border-radius: 50px;
@@ -522,8 +551,8 @@
         }
 
         .date-button:hover {
-            background: #1a5dba;
-            transform: scale(1.05);
+            background: #ff4757;
+            transform: scale(1.05) rotate(2deg);
         }
 
         .date-badge {
@@ -537,6 +566,86 @@
             font-size: 0.8rem;
             font-weight: bold;
             z-index: 1;
+        }
+
+        /* Coffee booking modal */
+        .coffee-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(5px);
+        }
+
+        .coffee-modal-content {
+            background: #222;
+            padding: 30px;
+            border-radius: 15px;
+            position: relative;
+            max-width: 500px;
+            width: 90%;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            animation: modalShow 0.5s ease;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #bbb;
+            transition: all 0.3s ease;
+        }
+
+        .close-modal:hover {
+            color: white;
+            transform: rotate(90deg);
+        }
+
+        .date-picker-container {
+            margin: 20px 0;
+        }
+
+        .date-picker, .time-picker {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border-radius: 10px;
+            border: none;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            font-size: 1rem;
+        }
+
+        .date-picker:focus, .time-picker:focus {
+            outline: none;
+            box-shadow: 0 0 0 2px #ff6b6b;
+        }
+
+        .book-now-btn {
+            background: #ff6b6b;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 15px;
+        }
+
+        .book-now-btn:hover {
+            background: #ff4757;
+            transform: translateY(-3px);
         }
 
         /* Featured Content */
@@ -566,6 +675,17 @@
             position: relative;
             border-radius: 15px;
             overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .video-placeholder::after {
+            content: "Diese Kamera könnte ich mir leisten, wenn ihr spendet 📸";
+            position: absolute;
+            font-size: 1.2rem;
+            padding: 0 20px;
+            text-align: center;
         }
 
         .play-button {
@@ -641,9 +761,56 @@
             padding: 0 20px 20px;
         }
 
+        /* Fun elements */
+        .fun-meter {
+            margin: 40px auto;
+            max-width: 600px;
+            text-align: center;
+        }
+
+        .fun-meter h3 {
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .fun-meter h3::after {
+            content: "🎭";
+            position: absolute;
+            right: -30px;
+            top: 0;
+        }
+
+        .fun-level {
+            display: flex;
+            justify-content: space-between;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 50px;
+            padding: 5px;
+            margin-top: 10px;
+        }
+
+        .fun-option {
+            flex: 1;
+            padding: 10px;
+            text-align: center;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .fun-option:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .fun-option.active {
+            background: #ff6b6b;
+            font-weight: bold;
+        }
+
         /* Newsletter */
         .newsletter {
-            background: linear-gradient(45deg, #6a11cb, #2575fc);
+            background: linear-gradient(45deg, #ff6b6b, #2575fc);
             padding: 50px 20px;
             border-radius: 10px;
             margin: 50px 0;
@@ -670,7 +837,7 @@
         }
 
         .newsletter-button {
-            background: #ff6b6b;
+            background: #000;
             color: white;
             padding: 15px 30px;
             border: none;
@@ -682,8 +849,8 @@
         }
 
         .newsletter-button:hover {
-            background: #ff4757;
-            transform: scale(1.05);
+            background: #333;
+            transform: scale(1.05) rotate(2deg);
         }
 
         /* Footer */
@@ -741,87 +908,91 @@
 
         .sound-toggle:hover {
             background: rgba(255, 255, 255, 0.2);
+            transform: rotate(15deg);
         }
 
-        /* Gift Modal */
-        .modal {
-            display: none;
+        /* Mini Game */
+        .mini-game {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            z-index: 1000;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
             align-items: center;
             justify-content: center;
-            backdrop-filter: blur(5px);
-        }
-
-        .modal-content {
-            background: #222;
-            padding: 30px;
-            border-radius: 15px;
-            position: relative;
-            max-width: 500px;
-            width: 90%;
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
-            text-align: center;
-            animation: modalShow 0.5s ease;
-        }
-
-        .close-modal {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            font-size: 1.5rem;
             cursor: pointer;
-            color: #bbb;
-            transition: all 0.3s ease;
-        }
-
-        .close-modal:hover {
+            z-index: 999;
             color: white;
-            transform: rotate(90deg);
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
         }
 
-        .gift-options {
+        .mini-game:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: rotate(-15deg);
+        }
+
+        .game-container {
+            display: none;
+            position: fixed;
+            bottom: 90px;
+            right: 30px;
+            width: 300px;
+            height: 300px;
+            background: #222;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            z-index: 998;
+            overflow: hidden;
+        }
+
+        .game-content {
+            width: 100%;
+            height: 100%;
             display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
+            flex-direction: column;
+            align-items: center;
             justify-content: center;
-            margin: 20px 0;
+            padding: 20px;
         }
 
-        .gift-option {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 15px;
-            border-radius: 10px;
+        .game-title {
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .coin-game {
+            width: 100px;
+            height: 100px;
+            background: #ffd700;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.5rem;
+            color: #333;
             cursor: pointer;
             transition: all 0.3s ease;
-            width: 120px;
+            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.5);
+            user-select: none;
         }
 
-        .gift-option:hover {
-            background: rgba(255, 255, 255, 0.1);
-            transform: translateY(-5px);
+        .coin-game:hover {
+            transform: scale(1.1);
         }
 
-        .gift-amount {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #2575fc;
+        .coin-game:active {
+            transform: scale(0.95);
         }
 
-        @keyframes modalShow {
-            from {
-                opacity: 0;
-                transform: scale(0.8);
-            }
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
+        .game-score {
+            margin-top: 20px;
+            font-size: 1.2rem;
         }
 
         /* Toast notifications */
@@ -830,7 +1001,7 @@
             bottom: 20px;
             left: 50%;
             transform: translateX(-50%);
-            background: #2575fc;
+            background: #ff6b6b;
             color: white;
             padding: 15px 25px;
             border-radius: 50px;
@@ -846,299 +1017,17 @@
             transform: translateX(-50%) translateY(-20px);
         }
 
-        /* Animations */
-        @keyframes gradient {
-            0% {
-                background-position: 0% 50%;
-            }
-            50% {
-                background-position: 100% 50%;
-            }
-            100% {
-                background-position: 0% 50%;
-            }
-        }
-
-        @keyframes floatUp {
-            0% {
-                transform: translateY(0);
-            }
-            100% {
-                transform: translateY(-20px);
-            }
-        }
-
-        @keyframes rocket {
-            0%, 100% {
-                transform: translateY(0) rotate(10deg);
-            }
-            50% {
-                transform: translateY(-10px) rotate(10deg);
-            }
-        }
-
-        @keyframes fallDown {
-            0% {
-                transform: translateY(-100vh);
-            }
-            100% {
-                transform: translateY(100vh);
-            }
-        }
-
-        @keyframes emojifall {
-            0% {
-                transform: translateY(-100vh) rotate(0deg);
-            }
-            100% {
-                transform: translateY(100vh) rotate(360deg);
-            }
-        }
-
-        @keyframes progress {
-            0% {
-                width: 0%;
-            }
-            100% {
-                width: 35%;
-            }
-        }
-
-        /* Easter Egg */
-        .konami-code {
+        /* Random discount popup */
+        .discount-popup {
+            display: none;
             position: fixed;
-            bottom: 10px;
-            right: 10px;
-            font-size: 0.8rem;
-            color: rgba(255, 255, 255, 0.3);
-            z-index: 100;
+            bottom: 20px;
+            right: 20px;
+            background: linear-gradient(45deg, #ff6b6b, #ff9966);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            z-index: 999;
+            max-width: 300px;
+            animation: bounceIn 0.5s ease;
         }
-
-        /* Responsiveness */
-        @media (max-width: 768px) {
-            body {
-                padding-top: 60px;
-            }
-            
-            .hero h1 {
-                font-size: 3rem;
-            }
-
-            .hero h1::after {
-                right: -30px;
-                font-size: 2rem;
-            }
-
-            .hero p {
-                font-size: 1.1rem;
-            }
-
-            .section-title {
-                font-size: 2rem;
-            }
-
-            .counter {
-                font-size: 2rem;
-                min-width: 60px;
-            }
-
-            .nav-links {
-                position: fixed;
-                top: 60px;
-                left: -100%;
-                width: 100%;
-                height: calc(100vh - 60px);
-                background: rgba(0, 0, 0, 0.9);
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-                gap: 30px;
-                transition: all 0.5s ease;
-            }
-
-            .nav-links.active {
-                left: 0;
-            }
-
-            .mobile-menu-btn {
-                display: block;
-            }
-        }
-    </style>
-</head>
-<body>
-    <!-- Navigation Bar -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <a href="#" class="logo">Oguzhan YDZ</a>
-            <div class="mobile-menu-btn">
-                <i class="fas fa-bars"></i>
-            </div>
-            <ul class="nav-links">
-                <li><a href="#about">Über Mich</a></li>
-                <li><a href="#meet">Triff Mich</a></li>
-                <li><a href="#social">Social Media</a></li>
-                <li><a href="#faq">FAQ</a></li>
-                <li><a href="https://donate.stripe.com/cN2bMt6dp6G5eFq288" class="donate-nav-btn">Spenden</a></li>
-            </ul>
-        </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <div class="hero">
-        <div class="hero-content">
-            <h1>Spende für Oguzhan</h1>
-            <p>Hilf mir, meine Träume zu verwirklichen und unterstütze meine Projekte mit deiner Spende!</p>
-            <a href="https://donate.stripe.com/cN2bMt6dp6G5eFq288" class="cta-button">Jetzt spenden</a>
-        </div>
-        
-        <!-- Animated coins -->
-        <div class="coin" style="left: 10%; animation-duration: 15s; animation-delay: 0s;"></div>
-        <div class="coin" style="left: 20%; animation-duration: 20s; animation-delay: 2s;"></div>
-        <div class="coin" style="left: 50%; animation-duration: 25s; animation-delay: 1s;"></div>
-        <div class="coin" style="left: 70%; animation-duration: 18s; animation-delay: 3s;"></div>
-        <div class="coin" style="left: 90%; animation-duration: 22s; animation-delay: 0.5s;"></div>
-    </div>
-
-    <!-- About Section -->
-    <section id="about">
-        <div class="container">
-            <h2 class="section-title">Über Mich</h2>
-            <div class="section-content">
-                <p>Hallo! Ich bin Oguzhan, ein leidenschaftlicher Entwickler und Content Creator. Mit deiner Unterstützung kann ich noch bessere Inhalte erstellen und spannende Projekte umsetzen.</p>
-                <p>Jede Spende hilft mir, meine Ausrüstung zu verbessern, mehr Zeit in meine Projekte zu investieren und qualitativ hochwertigeren Content zu produzieren.</p>
-            </div>
-            
-            <div class="donation-goal">
-                <h3>Unser Spendenziel</h3>
-                <div class="progress-container">
-                    <div class="progress-bar"></div>
-                </div>
-                <p>Wir haben bereits 35% unseres Ziels erreicht!</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Meet Section -->
-    <section id="meet">
-        <div class="container">
-            <h2 class="section-title">Triff Mich</h2>
-            <div class="section-content">
-                <p>Möchtest du mich persönlich kennenlernen? Hier sind einige Möglichkeiten:</p>
-            </div>
-            
-            <div class="date-options">
-                <div class="date-card">
-                    <div class="date-icon"><i class="fas fa-coffee"></i></div>
-                    <h3 class="date-title">Kaffee & Chat</h3>
-                    <p class="date-description">Treffen wir uns auf einen Kaffee und unterhalten uns über Technik, Leben oder was auch immer dich interessiert!</p>
-                    <div class="date-price">50€</div>
-                    <a href="#" class="date-button">Buchen</a>
-                </div>
-                
-                <div class="date-card">
-                    <div class="date-badge">Beliebt</div>
-                    <div class="date-icon"><i class="fas fa-laptop-code"></i></div>
-                    <h3 class="date-title">Essengehen</h3>
-                    <p class="date-description">Du darfst mir in dem Restraunt meiner wahl ein essen ausgeben und mit essen</p>
-                    <div class="date-price">100€</div>
-                    <a href="#" class="date-button">Buchen</a>
-                </div>
-                
-                <div class="date-card">
-                    <div class="date-icon"><i class="fas fa-video"></i></div>
-                    <h3 class="date-title">Video Collab</h3>
-                    <p class="date-description">Lass uns ein gemeinsames Video erstellen - perfekt für andere Creator!</p>
-                    <div class="date-price">150€</div>
-                    <a href="#" class="date-button">Buchen</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Social Media Section -->
-    <section id="social">
-        <div class="container">
-            <h2 class="section-title">Social Media</h2>
-            <div class="section-content">
-                <p>Folge mir auf meinen Social-Media-Kanälen für regelmäßige Updates und exklusive Inhalte!</p>
-            </div>
-    
-            <div class="social-links">
-                <a href="https://www.instagram.com/oguzhan_ydz" class="social-button instagram" target="_blank">
-                    <i class="fab fa-instagram"></i>
-                </a>
-                <a href="https://www.tiktok.com/@oguzhan_ydz" class="social-button tiktok" target="_blank">
-                    <i class="fab fa-tiktok"></i>
-                </a>
-                <a href="https://www.twitter.com/oguzhan_ydz" class="social-button twitter" target="_blank">
-                    <i class="fab fa-twitter"></i>
-                </a>
-            </div>
-        </div>
-    </section>
-    
-    <!-- FAQ Section -->
-    <section id="faq">
-        <div class="container">
-            <h2 class="section-title">Häufige Fragen</h2>
-            
-            <div class="faq-container">
-                <div class="faq-item">
-                    <div class="faq-question">Wie wird meine Spende verwendet?</div>
-                    <div class="faq-answer">
-                        <p>Deine Spende wird für die Verbesserung meiner Ausrüstung (Kamera, Mikrofon, Software), die Produktion von qualitativ hochwertigeren Inhalten und die Deckung allgemeiner Betriebskosten verwendet.</p>
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question">Gibt es eine Mindestspende?</div>
-                    <div class="faq-answer">
-                        <p>Nein, jede Spende ist willkommen, egal wie klein! Jeder Betrag hilft und wird sehr geschätzt.</p>
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question">Kann ich anonym spenden?</div>
-                    <div class="faq-answer">
-                        <p>Ja, beim Spendenprozess kannst du auswählen, ob dein Name öffentlich angezeigt werden soll oder nicht.</p>
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question">Gibt es besondere Vorteile für Spender?</div>
-                    <div class="faq-answer">
-                        <p>Ja! Ab bestimmten Spendenbeträgen erhältst du exklusive Vorteile wie frühen Zugang zu Inhalten, besondere Erwähnungen oder sogar persönliche Dankeschöns.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <p>Vielen Dank für deine Unterstützung! ❤️</p>
-            <p>&copy; 2025 Oguzhan YDZ. Alle Rechte vorbehalten.</p>
-            
-            <div class="hearts">
-                <div class="heart" style="left: 5%; animation-delay: 0s;"></div>
-                <div class="heart" style="left: 15%; animation-delay: 2s;"></div>
-                <div class="heart" style="left: 25%; animation-delay: 4s;"></div>
-                <div class="heart" style="left: 35%; animation-delay: 6s;"></div>
-                <div class="heart" style="left: 45%; animation-delay: 8s;"></div>
-                <div class="heart" style="left: 55%; animation-delay: 10s;"></div>
-                <div class="heart" style="left: 65%; animation-delay: 12s;"></div>
-                <div class="heart" style="left: 75%; animation-delay: 14s;"></div>
-                <div class="heart" style="left: 85%; animation-delay: 16s;"></div>
-                <div class="heart" style="left: 95%; animation-delay: 18s;"></div>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Sound Toggle -->
-    <div class="sound-toggle">
-        <i class="fas fa-volume-up"></i>
-    </div>
-
-    <!-- Emoji Rain (hidden by default
