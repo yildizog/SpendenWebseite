@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gemeinsam Gutes tun | Spendenaktion</title>
+    <title>Oguzhan helfen | Spendenaktion</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
     <style>
         :root {
@@ -14,6 +14,7 @@
             --gray: #86868b;
             --dark-gray: #1d1d1f;
             --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            --negative: #ff3b30;
         }
 
         * {
@@ -57,6 +58,36 @@
             color: var(--gray);
             max-width: 700px;
             margin: 0 auto 2rem;
+        }
+
+        .balance-container {
+            background-color: var(--light-gray);
+            border-radius: 18px;
+            padding: 20px;
+            margin: 2rem auto;
+            max-width: 500px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .balance-container:hover {
+            transform: translateY(-3px);
+        }
+
+        .balance-title {
+            font-size: 1rem;
+            color: var(--gray);
+            margin-bottom: 5px;
+        }
+
+        .balance-amount {
+            font-size: 2.5rem;
+            font-weight: 700;
+        }
+
+        .negative {
+            color: var(--negative);
         }
 
         .progress-container {
@@ -308,6 +339,16 @@
             animation: float 3s ease-in-out infinite;
         }
 
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+
         @media (max-width: 768px) {
             h1 {
                 font-size: 2.2rem;
@@ -327,8 +368,14 @@
 <body>
     <header>
         <div class="container">
-            <h1>Gemeinsam Gutes tun</h1>
-            <p class="subtitle">Kleine Spenden, große Wirkung. Wähle aus unseren sympathischen Spendenvorschlägen oder lass dich überraschen!</p>
+            <h1>Oguzhan helfen</h1>
+            <p class="subtitle">Kleine Spenden, große Wirkung. Hilf mir, mein Minus auszugleichen!</p>
+            
+            <div class="balance-container pulse">
+                <div class="balance-title">Mein aktueller Kontostand</div>
+                <div class="balance-amount negative" id="currentBalance">-247,50 €</div>
+                <div class="progress-text">Jede Spende bringt mich näher an die schwarze Null!</div>
+            </div>
             
             <div class="progress-container">
                 <div class="progress-bar" id="progressBar">0</div>
@@ -347,21 +394,21 @@
             <div class="donation-cards">
                 <div class="donation-card hidden" style="transition-delay: 0.1s;">
                     <h3>Einen Kaffee spendieren</h3>
-                    <p>Mach jemandem den Tag mit einer kleinen Aufmerksamkeit schöner.</p>
+                    <p>Mach mir den Tag mit einer kleinen Aufmerksamkeit schöner.</p>
                     <div class="donation-amount">10 €</div>
                     <a href="https://www.paypal.com/pools/c/9dV5EE7PNX" class="btn btn-outline">Auswählen</a>
                 </div>
                 
                 <div class="donation-card hidden" style="transition-delay: 0.2s;">
                     <h3>Ein warmes Essen geben</h3>
-                    <p>Schenke jemandem eine nahrhafte Mahlzeit.</p>
+                    <p>Schenke mir eine nahrhafte Mahlzeit.</p>
                     <div class="donation-amount">20 €</div>
                     <a href="https://www.paypal.com/pools/c/9dV5EE7PNX" class="btn btn-outline">Auswählen</a>
                 </div>
                 
                 <div class="donation-card hidden" style="transition-delay: 0.3s;">
                     <h3>Ein Kinoabend verschenken</h3>
-                    <p>Ermögliche jemandem einen unterhaltsamen Abend.</p>
+                    <p>Ermögliche mir einen unterhaltsamen Abend.</p>
                     <div class="donation-amount">15 €</div>
                     <a href="https://www.paypal.com/pools/c/9dV5EE7PNX" class="btn btn-outline">Auswählen</a>
                 </div>
@@ -369,7 +416,7 @@
             
             <div class="random-generator hidden" style="transition-delay: 0.4s;">
                 <h3>Lass dich überraschen!</h3>
-                <p>Wir finden den perfekten Spendenvorschlag für dich.</p>
+                <p>Ich finde den perfekten Spendenvorschlag für dich.</p>
                 <button class="btn" id="randomBtn">Vorschlag generieren</button>
                 <div class="random-suggestion" id="randomSuggestion">
                     Drücke den Button für einen zufälligen Vorschlag!
@@ -391,7 +438,7 @@
                     
                     <div class="form-group">
                         <label for="message">Deine Nachricht</label>
-                        <textarea id="message" required placeholder="Hallo, ich möchte mehr über eure Spendenaktion erfahren..."></textarea>
+                        <textarea id="message" required placeholder="Hallo Oguzhan, ich möchte dir helfen..."></textarea>
                     </div>
                     
                     <button type="submit" class="btn">Nachricht senden</button>
@@ -402,7 +449,7 @@
     
     <footer class="hidden">
         <div class="container">
-            <p>© 2023 Gemeinsam Gutes tun | Alle Spenden kommen direkt bei den Bedürftigen an</p>
+            <p>© 2025 Oguzhan helfen | Dank dir habe ich 10 € weniger minus</p>
         </div>
     </footer>
     
@@ -411,9 +458,14 @@
     </div>
     
     <audio id="soundEffect" src="https://assets.mixkit.co/sfx/preview/mixkit-cash-register-purchase-2809.mp3" preload="auto"></audio>
+    <audio id="thankYouSound" src="https://assets.mixkit.co/sfx/preview/mixkit-achievement-bell-600.mp3" preload="auto"></audio>
     
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            // Initialer Kontostand
+            let currentBalance = -247.50;
+            const balanceElement = document.getElementById('currentBalance');
+            
             // Animationen beim Scrollen auslösen
             const hiddenElements = document.querySelectorAll('.hidden');
             const observer = new IntersectionObserver((entries) => {
@@ -428,13 +480,13 @@
             
             // Zufällige Spendenvorschläge
             const suggestions = [
-                { title: "Ein Buch schenken", description: "Bildung ist der Schlüssel zur Zukunft.", amount: "12 €" },
-                { title: "Schulmaterialien", description: "Hilf einem Kind mit Stiften und Heften.", amount: "8 €" },
-                { title: "Ein Tag im Zoo", description: "Schenke einem Kind einen unvergesslichen Tag.", amount: "25 €" },
-                { title: "Ein Paar Schuhe", description: "Jeder verdient trockene Füße.", amount: "30 €" },
-                { title: "Ein Lächeln verschenken", description: "Manchmal braucht es nur eine kleine Geste.", amount: "5 €" },
-                { title: "Ein Mittagessen", description: "Niemand sollte hungrig bleiben.", amount: "15 €" },
-                { title: "Ein Musikinstrument", description: "Fördern Sie die Kreativität eines Kindes.", amount: "50 €" }
+                { title: "Ein Buch schenken", description: "Bildung ist der Schlüssel zur Zukunft.", amount: 12 },
+                { title: "Schulmaterialien", description: "Hilf mir mit Stiften und Heften.", amount: 8 },
+                { title: "Ein Tag im Zoo", description: "Schenke mir einen unvergesslichen Tag.", amount: 25 },
+                { title: "Ein Paar Schuhe", description: "Ich verdiene trockene Füße.", amount: 30 },
+                { title: "Ein Lächeln verschenken", description: "Manchmal braucht es nur eine kleine Geste.", amount: 5 },
+                { title: "Ein Mittagessen", description: "Ich sollte nicht hungrig bleiben.", amount: 15 },
+                { title: "Ein Musikinstrument", description: "Fördere meine Kreativität.", amount: 50 }
             ];
             
             document.getElementById('randomBtn').addEventListener('click', function() {
@@ -445,10 +497,16 @@
                     <div class="floating">
                         <h3>${random.title}</h3>
                         <p>${random.description}</p>
-                        <div class="donation-amount">${random.amount}</div>
-                        <a href="https://www.paypal.com/pools/c/9dV5EE7PNX" class="btn btn-outline">Auswählen</a>
+                        <div class="donation-amount">${random.amount} €</div>
+                        <button class="btn btn-outline" data-amount="${random.amount}">Auswählen</button>
                     </div>
                 `;
+                
+                // Event Listener für den neuen Button hinzufügen
+                suggestionElement.querySelector('button').addEventListener('click', function() {
+                    updateBalance(this.dataset.amount);
+                    document.getElementById('thankYouSound').play();
+                });
             });
             
             // Mascot Animation
@@ -457,8 +515,9 @@
                 "Hey, spende doch mal!",
                 "Ich seh dich... mach was Gutes!",
                 "Nur ein Klick für ein gutes Herz!",
-                "Gemeinsam können wir viel bewegen!",
+                "Gemeinsam können wir mein Minus ausgleichen!",
                 "Deine Spende macht einen Unterschied!",
+                `Mein Kontostand: ${currentBalance} € - Hilfe!`,
                 "Kleine Geste, große Wirkung!"
             ];
             
@@ -496,6 +555,39 @@
                 document.getElementById('progressBar').textContent = progressPercentage + '%';
             }
             
+            // Kontostand aktualisieren
+            function updateBalance(amount) {
+                currentBalance += parseFloat(amount);
+                balanceElement.textContent = currentBalance.toFixed(2) + ' €';
+                
+                // Pulsierende Animation auslösen
+                balanceElement.classList.remove('pulse');
+                void balanceElement.offsetWidth; // Trigger reflow
+                balanceElement.classList.add('pulse');
+                
+                // Nachricht vom Maskottchen
+                mascot.querySelector('.mascot-message').textContent = `Danke! ${amount} € weniger Minus!`;
+                
+                // Temporär sichtbar machen
+                mascot.style.bottom = '20px';
+                setTimeout(hideMascot, 3000);
+            }
+            
+            // Event Listener für Spendenbuttons
+            document.querySelectorAll('.donation-card .btn-outline').forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const amount = this.parentElement.querySelector('.donation-amount').textContent.replace(' €', '');
+                    updateBalance(amount);
+                    document.getElementById('thankYouSound').play();
+                    
+                    // Optional: Weiterleitung nach kurzer Verzögerung
+                    setTimeout(() => {
+                        window.location.href = this.href;
+                    }, 1500);
+                });
+            });
+            
             updateProgress();
             setInterval(updateProgress, 60000); // Aktualisiere jede Minute
             
@@ -513,7 +605,7 @@
                 
                 // In einer echten Anwendung würden wir hier eine AJAX-Anfrage senden
                 // Für dieses Beispiel zeigen wir nur eine Alert-Box
-                alert(`Vielen Dank für deine Nachricht! Wir melden uns bald bei ${email}.`);
+                alert(`Vielen Dank für deine Nachricht! Ich melde mich bald bei ${email}.`);
                 
                 // Zurücksetzen des Formulars
                 this.reset();
